@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ilhem Ben Salha — Développeuse Full‑Stack</title>
+  <meta name="description" content="Portfolio professionnel de Ilhem Ben Salha — Développeuse Full‑Stack Web & Mobile. Projets, compétences et contact." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg: #0f1724; /* deep */
+      --card: #0f1724;
+      --muted: #9ca3af;
+      --accent: #ffca28;
+      --accent-2: #ffb300;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.06);
+      --white: #ffffff;
+      --maxwidth: 1100px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#0b1220 0%, #08101a 100%);
+      color:var(--white); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.6; -webkit-tap-highlight-color:transparent;
+    }
+
+    .container{width:calc(100% - 40px); max-width:var(--maxwidth); margin:0 auto}
+
+    /* NAV */
+    nav{
+      position:sticky; top:0; z-index:40; backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(10,14,20,0.6), rgba(10,14,20,0.35));
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0;}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand .logo{width:46px; height:46px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:flex; align-items:center; justify-content:center; font-weight:700; color:#111}
+    .brand h1{font-size:16px; margin:0}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+
+    .nav-links{display:flex; gap:18px; align-items:center}
+    .nav-links a{color:var(--white); text-decoration:none; font-weight:600; font-size:14px; opacity:0.95}
+    .nav-links a:hover{color:var(--accent)}
+
+    .cta{background:var(--accent); color:#111; padding:8px 14px; border-radius:10px; font-weight:700; text-decoration:none}
+    .cta:hover{background:var(--accent-2)}
+
+    /* HERO */
+    header.hero{padding:70px 0 40px}
+    .hero-grid{display:grid; grid-template-columns: 1fr 380px; gap:30px; align-items:center}
+    .intro h2{font-size:28px; margin-bottom:8px}
+    .intro h1{font-size:40px; margin:0 0 12px}
+    .intro p{color:var(--muted); max-width:70ch}
+
+    .profile-card{background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); padding:22px; border-radius:14px; border:1px solid rgba(255,255,255,0.05)}
+    .avatar{width:100%; height:240px; border-radius:10px; background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80'); background-size:cover; background-position:center}
+    .profile-card h3{margin:12px 0 6px}
+    .small{font-size:13px; color:var(--muted)}
+
+    /* SECTIONS */
+    section{padding:50px 0;}
+    section h2{font-size:22px; margin-bottom:18px}
+    .section-inner{display:grid; gap:18px}
+
+    /* SKILLS */
+    .skills{display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:12px}
+    .skill{background:var(--glass); padding:14px; border-radius:10px; text-align:center; border:1px solid rgba(255,255,255,0.03)}
+    .skill p{margin:6px 0 0; color:var(--muted); font-size:13px}
+
+    /* TIMELINE / EXPERIENCE */
+    .timeline{display:flex; flex-direction:column; gap:14px}
+    .exp{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:10px; border-left:4px solid var(--accent);}
+    .exp small{color:var(--muted)}
+
+    /* PROJECTS */
+    .projects{display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px}
+    .proj{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.03)}
+    .proj h4{margin:0 0 6px}
+    .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:6px 8px; background:rgba(255,255,255,0.03); border-radius:999px; color:var(--muted)}
+
+    /* CONTACT */
+    .contact-grid{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
+    .card{background:var(--glass-2); padding:18px; border-radius:10px; border:1px solid rgba(255,255,255,0.03)}
+    .contact-list p{margin:8px 0}
+
+    /* FOOTER */
+    footer{padding:30px 0; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.03)}
+
+    /* RESPONSIVE */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .profile-card{order:-1}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:520px){
+      .brand p{display:none}
+      .nav-links{gap:12px}
+    }
+
+    /* Small utilities */
+    .muted{color:var(--muted)}
+    .btn-outline{border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:8px; text-decoration:none; color:var(--white)}
+    .center{display:flex; align-items:center; gap:8px}
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="logo">IB</div>
+      <div>
+        <h1 style="font-size:15px;margin-bottom:2px">Ilhem Ben Salha</h1>
+        <p style="font-size:12px;margin:0;color:var(--muted)">Développeuse Full‑Stack</p>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#experience">Expériences</a>
+      <a href="#projects">Projets</a>
+      <a class="cta" href="#contact">Me contacter</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div class="intro">
+      <h2 class="muted">Bonjour, je suis</h2>
+      <h1>Ilhem Ben Salha</h1>
+      <p>Développeuse Full‑Stack Web & Mobile — je conçois des applications performantes et centrées utilisateur (Angular, React, Laravel, Spring Boot, Node.js, Flutter).</p>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="cta" href="#projects">Voir mes projets</a>
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:8px;align-items:center">
+        <div class="center muted"><i class="fa-solid fa-location-dot"></i><span>Tunisie</span></div>
+        <div class="center muted"><i class="fa-solid fa-briefcase"></i><span>Disponible</span></div>
+      </div>
+    </div>
+
+    <aside class="profile-card">
+      <h3>Ilhem Ben Salha</h3>
+      <div class="small">Développeuse Full‑Stack — Web & Mobile</div>
+      <p class="muted" style="margin-top:10px;font-size:14px">Mastère Professionnel en Applications Mobiles — ISET Radès. Je crée des applications maintenables et bien testées.</p>
+
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn-outline" href="https://github.com/ilhembensalha" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a class="btn-outline" href="https://linkedin.com/in/ilhem-ben-salha157009203" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="container">
+      <h2>À propos</h2>
+      <div class="section-inner">
+        <p class="muted">Je suis développeuse Web et Mobile avec un vrai goût pour l'architecture logicielle, la qualité du code et l'expérience utilisateur. J'ai participé à des projets full‑stack (Angular, React, Laravel, Node.js, Spring Boot) ainsi qu'à des applications mobiles avec Flutter. J'aime travailler en équipe, écrire des tests et automatiser les tâches pour accélérer la livraison.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Compétences techniques</h2>
+      <div class="skills">
+        <div class="skill"><strong>Langages</strong><p>JavaScript · TypeScript · Java · C</p></div>
+        <div class="skill"><strong>Front‑end</strong><p>Angular · React · HTML · CSS</p></div>
+        <div class="skill"><strong>Back‑end</strong><p>Laravel · Node.js · Spring Boot · CodeIgniter</p></div>
+        <div class="skill"><strong>Mobile</strong><p>Flutter · Android</p></div>
+        <div class="skill"><strong>Bases de données</strong><p>MySQL · MongoDB · PostgreSQL · Firebase</p></div>
+        <div class="skill"><strong>Outils</strong><p>Git · Docker · CI/CD · Firebase</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2>Expériences professionnelles</h2>
+      <div class="timeline">
+
+        <article class="exp">
+          <h3>Développeuse Full Stack — Ama Business</h3>
+          <small>Fév. 2025 – Présent • Manouba</small>
+          <ul class="muted" style="margin-top:8px">
+            <li>Développement front‑end et back‑end, intégration d'API.</li>
+            <li>Optimisation des performances et de la base de données.</li>
+            <li>Maintenance, tests unitaires et revue de code.</li>
+          </ul>
+        </article>
+
+        <article class="exp">
+          <h3>Développeuse Full Stack — DIGIKA</h3>
+          <small>Fév. 2024 – Juil. 2024</small>
+          <p class="muted">Développement d'un système de gestion de parc véhicules (Laravel + Flutter).</p>
+        </article>
+
+        <article class="exp">
+          <h3>Développeuse Full Stack — Bilog</h3>
+          <small>Fév. 2022 – Juin 2022</small>
+          <p class="muted">Système de gestion des congés (Laravel + React).</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projets Académique</h2>
+      <div class="projects">
+
+        <div class="proj">
+          <h4>Gestion du parc véhicules</h4>
+          <p class="muted">Laravel · Flutter — Application complète de suivi, rappels, dépenses et statistiques.</p>
+          <div class="tags" style="margin-top:10px">
+            <span class="tag">API REST</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Flutter</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h4>Gestion des congés</h4>
+          <p class="muted">Laravel · React — Système RH pour gestion des demandes et des validations.</p>
+          <div class="tags" style="margin-top:10px"><span class="tag">Auth</span><span class="tag">CRUD</span></div>
+        </div>
+
+        <div class="proj">
+          <h4>Money Management</h4>
+          <p class="muted">Angular · Node.js · MongoDB · Flutter — Tableaux de bord et suivi des dépenses.</p>
+          <div class="tags" style="margin-top:10px"><span class="tag">Dashboards</span><span class="tag">Charts</span></div>
+        </div>
+
+        <div class="proj">
+          <h4>Gestion & réservation de films</h4>
+          <p class="muted">PHP · MySQL — Système simple de catalogue et réservation.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    <section id="projects">
+    <div class="container">
+      <h2>Projets  professionnels</h2>
+      <div class="projects">
+
+        <div class="proj">
+          <h4>Socle</h4>
+          <p class="muted">Angular · springboot · keycloak —  une application SSO (Single Sign-On) permettant l'accès unifié à plusieurs applications liées à l’UTM.</p>
+          <div class="tags" style="margin-top:10px">
+            <span class="tag">API REST</span>
+            <span class="tag">keycloak</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h4>SRTB</h4>
+           <p class="muted">Laravel — Application pour la gestion des ressources humaines et des demandes dans une société de transport.</p>
+        </div>
+
+        <div class="proj">
+          <h4>Reontation(utm)</h4>
+          <p class="muted">PHP · MySQL .</p>
+        </div>
+
+        <div class="proj">
+          <h4>Mution(utm) </h4>
+          <p class="muted">PHP · MySQL . </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2>Formations</h2>
+      <div class="section-inner">
+        <p class="muted"><strong>Mastère Pro — Applications Mobiles</strong> — ISET Radès (2022–2024)</p>
+        <p class="muted"><strong>Licence DSI</strong> — ISET Bizerte (2018–2022)</p>
+        <p class="muted"><strong>Baccalauréat Informatique</strong> — Bizerte (2017–2018)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="card contact-list">
+          <p><strong>Email</strong><br><a href="mailto:bensalhailhem@gmail.com" style="color:var(--accent);text-decoration:none">bensalhailhem@gmail.com</a></p>
+          <p><strong>Téléphone</strong><br><a href="tel:+21655806852" style="color:var(--accent);text-decoration:none">+216 55 806 852</a></p>
+          <p><strong>GitHub</strong><br><a href="https://github.com/ilhembensalha" target="_blank" style="color:var(--accent);text-decoration:none">@ilhembensalha</a></p>
+          <p><strong>LinkedIn</strong><br><a href="https://linkedin.com/in/ilhem-ben-salha157009203" target="_blank" style="color:var(--accent);text-decoration:none">@ilhem-ben-salha</a></p>
+        </div>
+
+      
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Ilhem Ben Salha • Développeuse Full‑Stack .</p>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+
+  // Simple contact form handler (opens mailto as fallback)
+
+  // Accessibility: focus outlines for keyboard users
+  (function(){
+    function handleFirstTab(e){
+      if(e.key === 'Tab'){
+        document.documentElement.classList.add('user-is-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+      }
+    }
+    window.addEventListener('keydown', handleFirstTab);
+  })();
+</script>
+
+</body>
+</html>
